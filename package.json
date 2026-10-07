@@ -1,0 +1,73 @@
+{
+  "name": "yum-yum-billing",
+  "version": "1.0.0",
+  "description": "Production POS Billing Application for Yum Yum Cafe",
+  "main": "src/main/index.js",
+  "author": "Yum Yum Cafe",
+  "license": "ISC",
+  "type": "commonjs",
+  "scripts": {
+    "server": "node server/index.js",
+    "dev:renderer": "vite",
+    "dev:electron": "wait-on http://localhost:5173 && electron .",
+    "dev": "concurrently -k -n \"VITE,ELECTRON\" -c \"yellow,blue\" \"npm run dev:renderer\" \"npm run dev:electron\"",
+    "build": "vite build",
+    "build:win": "vite build && electron-builder --win --x64",
+    "test": "node tests/run-all-tests.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^13.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.5",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "lucide-react": "^1.52.0",
+    "qrcode": "^1.5.4",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.2",
+    "concurrently": "^10.0.5",
+    "cross-env": "^10.1.0",
+    "electron": "^44.5.1",
+    "electron-builder": "^26.15.3",
+    "vite": "^8.3.3",
+    "wait-on": "^9.5.1"
+  },
+  "build": {
+    "appId": "com.yumyum.billing",
+    "productName": "Yum Yum Billing",
+    "npmRebuild": false,
+    "directories": {
+      "output": "dist-build"
+    },
+    "files": [
+      "dist/**/*",
+      "src/main/**/*",
+      "src/preload/**/*",
+      "src/shared/**/*",
+      "assets/**/*",
+      "package.json",
+      "node_modules/better-sqlite3/**/*"
+    ],
+    "asarUnpack": [
+      "**/node_modules/better-sqlite3/**/*"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Yum Yum Billing",
+      "deleteAppDataOnUninstall": false
+    }
+  }
+}
