@@ -276,6 +276,10 @@ function generateReceiptHtml(bill, settings = {}, paperWidth = '80mm') {
 
   <div class="footer-msg">*** THANK YOU! VISIT AGAIN ***</div>
   <div class="text-center cafe-meta">Have a Delicious Day at Yum Yum Cafe!</div>
+  <div style="text-align: center; font-size: 9px; margin-top: 12px; margin-bottom: 4px; line-height: 1.2;">
+    <div>This App Made By OGStudio</div>
+    <div>Contact: devogghelp@gmail.com</div>
+  </div>
 </body>
 </html>`;
 }

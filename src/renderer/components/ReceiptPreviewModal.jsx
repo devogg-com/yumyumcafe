@@ -259,6 +259,11 @@ export default function ReceiptPreviewModal({ bill, onClose }) {
           <div style={{ textAlign: 'center', fontSize: '10px', color: '#444', marginTop: '2px' }}>
             Have a Delicious Day at Yum Yum Cafe!
           </div>
+          
+          <div style={{ textAlign: 'center', fontSize: '9px', marginTop: '12px', marginBottom: '4px', lineHeight: 1.2 }}>
+            <div>This App Made By OGStudio</div>
+            <div>Contact: devogghelp@gmail.com</div>
+          </div>
         </div>
 
         {/* Action Buttons */}
